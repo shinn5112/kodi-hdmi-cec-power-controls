@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.hdmi.cec.power"
+       name="HDMI CEC Power Controls"
+       version="0.1.0"
+       provider-name="shinn">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+  </requires>
+
+  <extension point="xbmc.python.script" library="default.py"/>
+
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Trigger HDMI CEC power commands from Kodi JSON-RPC</summary>
+    <description lang="en_GB">
+      Exposes simple script actions (on/off/toggle) that can be invoked through
+      Addons.ExecuteAddon over Kodi's JSON-RPC API.
+    </description>
+    <platform>all</platform>
+    <license>MIT</license>
+    <source>https://github.com/shinn/kodi-hdmi-cec-power-controls</source>
+  </extension>
+</addon>
