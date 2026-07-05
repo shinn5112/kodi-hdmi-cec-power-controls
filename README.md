@@ -11,9 +11,15 @@ It exposes script actions that map to Kodi built-ins:
 
 ## Install
 
-1. Zip this folder contents (not the parent folder) so `addon.xml` is at the zip root.
+1. Build the package from this repository root:
+
+  ```bash
+  ./package.sh
+  ```
+
+  This creates `dist/script.hdmi.cec.power-<version>.zip`.
 2. In Kodi: **Add-ons -> Install from zip file**.
-3. Enable CEC in Kodi settings and ensure your TV/device supports HDMI CEC.
+3. Ensure HDMI CEC is enabled on your TV and in Kodi.
 
 ## JSON-RPC examples
 
@@ -65,3 +71,14 @@ The addon accepts these equivalent action formats:
 
 - CEC behavior is device-dependent. Some TVs ignore wake/standby under certain settings.
 - `CECStandby` may impact other devices on the CEC chain depending on your setup.
+
+## CEC settings checklist (important)
+
+If `on` works but `off` does not, check Kodi CEC adapter settings first:
+
+1. Kodi path: **Settings -> System -> Input -> Peripherals -> CEC Adapter**
+2. Set **Device type** to **Playback device**
+3. Set **Devices to power off during shutdown** to include **TV** and **AVR**
+4. Verify TV-side CEC vendor setting is enabled (Anynet+, Simplink, Bravia Sync, etc.)
+
+In testing, setting the CEC adapter **Device type** to **Playback device** was required for reliable standby/power-off behavior.
